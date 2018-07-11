@@ -7,9 +7,11 @@ feature 'Search by region' do
     region2 = Region.create(name: 'Campos')
     property_type = PropertyType.create(name: 'Apartamento')
     property = Property.create(title: 'Casa chic', room_quantity: 4 , maximum_guests: 8, minimum_rent: 2,
-                        maximum_rent: 15, daily_rate: 250.0, property_type: property_type, region: region)
+                        maximum_rent: 15, daily_rate: 250.0, property_type: property_type, region: region,
+                        photo: File.new(Rails.root.join('spec', 'support', 'casa.jpg')))
     property2 = Property.create(title: 'Casa pobre', room_quantity: 1 , maximum_guests: 50, minimum_rent: 1,
-                        maximum_rent: 15, daily_rate: 30.0, property_type: property_type, region: region2)                        
+                        maximum_rent: 15, daily_rate: 30.0, property_type: property_type, region: region2,
+                        photo: File.new(Rails.root.join('spec', 'support', 'casa.jpg')))                        
     
     #navegar
     visit root_path

@@ -18,6 +18,18 @@ class RegionsController < ApplicationController
     end
   end
 
+  def search
+    @region = Region.find(params[:q][:region])
+
+    if @region.properties.present?
+      redirect_to @region
+    else
+      flash[:alert] = "Região #{@region.name} sem propriedades ainda!" 
+      redirect_to @region 
+    end
+    
+  end
+
   private
 
   def region_params
@@ -27,4 +39,5 @@ class RegionsController < ApplicationController
   def set_region
     @region = Region.find(params[:id])
   end
+
 end

@@ -64,5 +64,9 @@
     <%= f.number_field :daily_rate, step: 0.01, class: 'form-control' %>
   </div>
   <div class="form-group">
+    <%= f.label :photo, 'Foto' %>
+    <%= f.file_field :photo %>
+  </div>
+  <div class="form-group">
     <%= f.submit 'Cadastrar', class: 'btn btn-primary' %>
   <% end %>

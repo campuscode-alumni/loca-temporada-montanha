@@ -1,6 +1,6 @@
 <h1><%= @region.name %></h1>
 <%= alert %>
-<%= @region.properties.each do |p| %>
+<% @region.properties.each do |p| %>
   <%= p.title %>
   <%= p.property_type.name %>
   <%= p.maximum_guests %>

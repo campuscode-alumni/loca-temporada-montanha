@@ -13,7 +13,7 @@ class CreateProposals < ActiveRecord::Migration[5.2]
       t.boolean :smoker
       t.decimal :total_amount
       t.text :details
-      t.references :property_id, foreign_key: true
+      t.references :property, foreign_key: true
 
       t.timestamps
     end

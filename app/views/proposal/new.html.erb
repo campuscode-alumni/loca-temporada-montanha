@@ -1,0 +1,44 @@
+<%= form_for(@proposal, url: new_property_proposal_path) do |f| %>
+  <div>
+    <%=  f.label :start_date, 'Data de Chegada' %>
+    <%= f.date_field :start_date %>
+  </div>
+  <div>
+    <%=  f.label :end_date, 'Data de Saida' %>
+    <%= f.date_field :end_date %>
+  </div>
+  <div>
+    <%=  f.label :total_guests, 'Número de Hóspedes' %>
+    <%= f.select(:total_guests, options_for_select(1..@property.maximum_guests)) %>
+  </div>
+  <div>
+    <%=  f.label :guest_name, 'Nome do proponente' %>
+    <%= f.text_field :guest_name %>
+  </div>
+  <div>
+    <%=  f.label :email, 'Email' %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%=  f.label :phone, 'Telefone' %>
+    <%= f.text_field :phone %>
+  </div>
+  <div>
+    <%=  f.label :rent_purpose, 'Finalidade da proposta' %>
+    <%= f.text_field :rent_purpose %>
+  </div>
+  <div>
+    <%= f.check_box(:pet) %>
+    <%= f.label(:pet, "Tem pet ?") %>
+  </div>
+  <div>
+    <%= f.check_box(:smoker) %>
+    <%= f.label(:smoker, "Tem Fumantes ?") %>
+  </div>
+  <div>
+    <%=  f.label :details, 'Mais Detalhes' %>
+    <%= f.text_field :details %>
+  </div>
+  <%= f.submit "Enviar Proposta" %>
+  
+<% end %>

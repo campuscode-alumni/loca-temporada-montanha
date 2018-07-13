@@ -12,16 +12,16 @@ feature 'Send Proposal' do
     visit root_path
     select 'Copacabana', from: 'Região'
     click_on 'Buscar'
-    click_on "#{property.name}"
+    click_on "#{property.title}"
     click_on 'Fazer proposta'
 
     fill_in "Data de Chegada", with: "11/11/2018"
     fill_in "Data de Saida", with: "14/11/2018"
     
-    select "2", from "Número de Hóspedes"  
+    select "2", from: "Número de Hóspedes"  
     fill_in "Nome do proponente", with: "Tio chato"
-    fill_in "email", with: "tio@mail.com"
-    fill_in "Telfone", with: "1144446666"
+    fill_in "Email", with: "tio@mail.com"
+    fill_in "Telefone", with: "1144446666"
     fill_in "Finalidade da proposta", with: "Casamento"
     check "Tem pet ?"
     check "Tem Fumantes ?"
@@ -30,7 +30,7 @@ feature 'Send Proposal' do
 
     #expectativa
     expect(page).to have_content('Proposta enviada com sucesso')
-    expect(page).to have_content("Proposta para #{property.name}")
+    expect(page).to have_content("Proposta para #{property.title}")
     expect(page).to have_content('h1', 'Feita por:')
     expect(page).to have_css('h2', "Tio chato")
     expect(page).to have_css('h2', "tio@mail.com")

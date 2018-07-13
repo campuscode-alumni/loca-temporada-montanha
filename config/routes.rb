@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  resources :properties, only: [:show, :new, :create]
+  resources :properties, only: [:show, :new, :create] do
+    resources :proposals, only: [:new, :create, :show]
+  end
+
   resources :property_types, only: [:show, :new, :create]
   resources :regions, only: [:show, :new, :create]
-  resources :proposals
+  resources :proposals, only: [:index]
+  
   get '/search_region', to: 'regions#search'
 end

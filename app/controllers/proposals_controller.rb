@@ -3,6 +3,10 @@ class ProposalsController < ApplicationController
 
   def show;  end
 
+  def index
+    @proposals = Proposal.all
+  end
+
   def new
     @proposal = Proposal.new
     @property = Property.find(params[:property_id])
@@ -35,6 +39,7 @@ class ProposalsController < ApplicationController
                                      :total_guests, :guest_name, :email, :phone, 
                                      :pet, :smoker, :details, :property, 
                                      :rent_purpose)
+  
   end
 
 end

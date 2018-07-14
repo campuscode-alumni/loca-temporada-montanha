@@ -3,6 +3,8 @@ class Property < ApplicationRecord
   belongs_to :region
   has_many :proposals
 
+  has_many :proposals
+
   has_attached_file :photo
 
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/ 

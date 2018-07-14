@@ -1,0 +1,7 @@
+<% if @proposals.empty? %>
+  <p>Nenhuma proposta para este imóvel no momento</p>
+<% else %>
+  <% @proposals.each do |proposal| %>
+    <%= proposal.guest_name %>    
+  <% end %>
+<% end %>

@@ -1,23 +1,45 @@
 class ProposalsController < ApplicationController
+  before_action :set_proposal, only: [:show]
+
+  def show;  end
+
   def index
     @proposals = Proposal.all
   end
 
   def new
     @proposal = Proposal.new
+    @property = Property.find(params[:property_id])
   end
 
   def create
+    @property = Property.find(params[:property_id])
     @proposal = Proposal.new(proposal_params)
-    @proposal.save
+
+    @proposal.property = @property
+
+    if @proposal.save
+      flash[:success] = 'Proposta enviada com sucesso'
+      redirect_to [@property, @proposal]
+    else
+      flash[:alert] = 'Falta preencher campos'
+      render :new 
+    end
+    
   end
 
   private
 
+  def set_proposal
+    @proposal = Proposal.find(params[:id])
+  end
+
   def proposal_params
-    params.require(:proposal).permit(:start_date, :end_date, :total_amount,
-                                    :guest_name, :email, :phone, :rent_purpose,
-                                    :pet, :smoker, :details, :property_id)
+    params.require(:proposal).permit(:start_date, :end_date, :total_amount, 
+                                     :total_guests, :guest_name, :email, :phone, 
+                                     :pet, :smoker, :details, :property, 
+                                     :rent_purpose)
+  
   end
 
 end

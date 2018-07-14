@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   devise_for :realtors
   root to: 'home#index'
   resources :properties, only: [:show, :new, :create] do

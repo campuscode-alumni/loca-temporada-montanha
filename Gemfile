@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
 #Easy upload management for ActiveRecord
 gem 'paperclip', '~> 6.0'
+#Flexible authentication solution for Rails with Warden
+gem 'devise'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

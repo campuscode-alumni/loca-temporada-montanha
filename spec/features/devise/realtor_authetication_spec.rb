@@ -2,7 +2,9 @@ require 'rails_helper'
 
 feature 'Realtor authentication' do
   scenario 'successfully' do
-    realtor = Realtor.create!(name: 'Éduardo Koch', email: 'kochs@01.com', password: '123456')
+    realtor = Realtor.create!(name: 'Éduardo Koch',
+                              email: 'kochs@01.com',
+                              password: '123456')
 
     visit root_path
     click_on 'Login'

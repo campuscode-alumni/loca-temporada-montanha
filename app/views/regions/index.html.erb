@@ -1,0 +1,6 @@
+<% if @regions.empty? %>
+<% else %>
+  <% @regions.each do |region| %>
+    <%= link_to(region.name, region)%>
+  <% end %>
+<% end %>

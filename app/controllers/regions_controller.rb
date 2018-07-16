@@ -1,6 +1,10 @@
 class RegionsController < ApplicationController
   before_action :set_region, only: [:show]
 
+  def index
+    @regions = Region.all
+  end
+
   def show; end
 
   def new
@@ -28,6 +32,24 @@ class RegionsController < ApplicationController
       redirect_to @region 
     end
     
+  end
+
+  def edit
+    id = params[:id]
+    @region = Region.find(id)
+  end
+
+  def update
+    id = params[:id]
+    @region = Region.find(id)
+
+    if @region.update(region_params)
+      flash[:notice] = 'Região Atualizada com Sucesso'
+      redirect_to region_path
+    else
+      flash[:alert] = 'Campos em branco'
+      render 'edit'
+    end
   end
 
   private

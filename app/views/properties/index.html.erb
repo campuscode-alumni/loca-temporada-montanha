@@ -2,9 +2,9 @@ Bem-vindo ao aluga temporada!
 
 <%= link_to 'Cadastrar Imóvel', new_property_path %>
 
-<% if @property.empty? %>
+<% if @properties.empty? %>
 <% else %>
-  <% @property.each do |property| %>
+  <% @properties.each do |property| %>
     <%= link_to(property.title, property)%>
   <% end %>
 <% end %>

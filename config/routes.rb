@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :proposals, only: [:new, :create, :show]
   end
   resources :property_types, only: [:show, :new, :create]
-  resources :regions, only: [:show, :new, :create]
+  resources :regions, only: [:index, :show, :new, :create, :edit, :update]
   resources :proposals, only: [:index]
   
   get '/search_region', to: 'regions#search'

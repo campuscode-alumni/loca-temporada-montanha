@@ -10,7 +10,7 @@ class PropertiesController < ApplicationController
   end
 
   def index
-    @property = Property.all
+    @properties = Property.all
   end
 
   def edit

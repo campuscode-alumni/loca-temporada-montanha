@@ -24,7 +24,7 @@ feature 'Realtor view property' do
     click_on 'Minhas Propriedades'
     
     #expectativa
-    expect(page).to have_content('kochs@01.com')
+    expect(page).to have_content('dudu@01.com')
     expect(page).to have_css("h1", text: "#{region.name}")
     expect(page).to have_content("#{property.title}")
     expect(page).to have_content("#{property.property_type.name}")

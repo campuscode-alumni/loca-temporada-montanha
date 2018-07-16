@@ -1,5 +1,3 @@
-Bem-vindo ao aluga temporada!
-
 <% if @properties.empty? %>
   <p>Nenhuma proposta para este imóvel no momento</p>
 <% else%>
@@ -11,5 +9,3 @@ Bem-vindo ao aluga temporada!
       <h2>Motivo: <%= proposal.rent_purpose %></h2> 
     </ul>     
   <% end %>
-
-<%= link_to 'Cadastrar Imóvel', new_property_path %>

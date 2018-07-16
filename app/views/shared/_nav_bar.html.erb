@@ -7,7 +7,6 @@
   <div>
     <% if realtor_signed_in? %>
       <%= current_realtor.email %>
-      <%= link_to 'Minhas Propriedades', realtors_path %>
       <%= link_to 'Sair', destroy_realtor_session_path, method: :delete %>
     <% else %>
       <%= link_to 'Login', new_realtor_session_path %>

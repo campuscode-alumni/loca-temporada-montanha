@@ -3,6 +3,12 @@ class PropertiesController < ApplicationController
 
   def show; end
 
+  def index
+    if realtor_signed_in?
+      @properties = current_user.properties
+    end
+  end
+
   def new
     @property = Property.new
     @regions = Region.all

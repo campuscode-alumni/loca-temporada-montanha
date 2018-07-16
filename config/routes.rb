@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :property_types, only: [:show, :new, :create]
   resources :regions, only: [:show, :new, :create]
   resources :proposals, only: [:index]
+  resources :realtor, only: [:index]
+
   
   get '/search_region', to: 'regions#search'
 end

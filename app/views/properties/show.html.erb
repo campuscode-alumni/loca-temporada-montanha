@@ -17,5 +17,6 @@
   <%= image_tag @property.photo.url %>
 </ul>
 
+<%= link_to 'Editar', edit_property_path  %>
 <%= link_to "Fazer proposta", new_property_proposal_path(@property) %>
 <p>Imóvel cadastrada com sucesso</p>

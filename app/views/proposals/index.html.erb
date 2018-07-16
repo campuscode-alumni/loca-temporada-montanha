@@ -1,7 +1,10 @@
 <% if @proposals.empty? %>
   <p>Nenhuma proposta para este imóvel no momento</p>
-<% else %>
+<% else%>
   <% @proposals.each do |proposal| %>
-    <%= proposal.guest_name %>    
+    <%= proposal.guest_name %>   
+    <h1><%= proposal.property.region.name %></h1>
+    <h2><%= proposal.property.title %></h2>
+    <h2><%= proposal.rent_purpose %></h2>      
   <% end %>
 <% end %>

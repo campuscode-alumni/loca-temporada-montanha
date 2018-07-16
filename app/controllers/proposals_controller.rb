@@ -4,7 +4,11 @@ class ProposalsController < ApplicationController
   def show;  end
 
   def index
-    @proposals = Proposal.all
+
+    if user_signed_in?
+      @proposals = current_user.proposals
+    end
+
   end
 
   def new

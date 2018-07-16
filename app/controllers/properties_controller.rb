@@ -9,6 +9,33 @@ class PropertiesController < ApplicationController
     @property_types = PropertyType.all
   end
 
+  def index
+    @properties = Property.all
+  end
+
+  def edit
+    @property_types = PropertyType.all
+    @regions = Region.all
+    id = params[:id]
+    @property = Property.find(id)
+  end
+
+  def update
+    @property_types = PropertyType.all
+    @regions = Region.all
+    id = params[:id]
+    @property = Property.find(id)
+
+
+    if @property.update(property_params)
+      flash[:notice] = 'Imóvel atualizado com sucesso'
+      redirect_to property_path
+    else
+      flash[:alert] = 'Campos em branco'
+      render 'edit'
+    end
+  end
+
   def create
     @property = Property.new(property_params)
     if @property.save

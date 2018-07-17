@@ -1,0 +1,9 @@
+
+<%= link_to 'Cadastrar Tipo de Imóvel', new_property_type_path %>
+
+<% if @property_types.empty? %>
+<% else %>
+  <% @property_types.each do |property_type| %>
+    <%= link_to(property_type.name, property_type)%>
+  <% end %>
+<% end %>

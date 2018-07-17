@@ -46,6 +46,9 @@
           <%= link_to 'Visualizar Regiões', regions_path, class: 'nav-link'  %>
         </li>
         <li class="nav-item">
+          <%= link_to 'Visualizar Tipo de Imóvel', property_types_path, class: 'nav-link'  %>
+        </li>
+        <li class="nav-item">
           <%= link_to 'Sair', destroy_realtor_session_path, method: :delete, class: 'nav-link'  %>
         </li>
       <% else %>
@@ -62,6 +65,5 @@
         <%= link_to 'Entrar como Usuário', new_user_session_path, class: 'nav-link'  %>
       <% end %>
     </ul>
->>>>>>> 495bdecaba7179bcabb984b0a8778d03d3d283df
   </div>
 </nav>

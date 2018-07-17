@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_14_011421) do
+ActiveRecord::Schema.define(version: 2018_07_16_210944) do
 
   create_table "properties", force: :cascade do |t|
     t.string "title"
@@ -58,7 +58,9 @@ ActiveRecord::Schema.define(version: 2018_07_14_011421) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "rent_purpose"
+    t.integer "user_id"
     t.index ["property_id"], name: "index_proposals_on_property_id"
+    t.index ["user_id"], name: "index_proposals_on_user_id"
   end
 
   create_table "realtors", force: :cascade do |t|
@@ -98,6 +100,8 @@ ActiveRecord::Schema.define(version: 2018_07_14_011421) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "cpf"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

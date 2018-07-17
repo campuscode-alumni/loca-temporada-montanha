@@ -5,11 +5,12 @@ feature 'Realtor edit region' do
     realtor = Realtor.create!(name: 'Marcos Vieira', email: 'marcos@gmail.com', password: '1234567')
     region = Region.create!(name: 'São Paulo')
 
-    visit root_path
-    click_on 'Login'
+    realtor = Realtor.create!(name: 'Éduardo Koch', email: 'kochs@01.com', password: '123456')
 
-    fill_in 'Email', with: 'marcos@gmail.com'
-    fill_in 'Password', with: '1234567'
+    visit root_path
+    click_on 'Entrar como Corretor'
+    fill_in 'Email', with: 'kochs@01.com' 
+    fill_in 'Password', with: '123456'
     click_on 'Log in'
     click_on 'Visualizar Regiões'
     click_on "#{region.name}"

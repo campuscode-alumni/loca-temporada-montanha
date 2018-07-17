@@ -30,7 +30,7 @@ class PropertyTypesController < ApplicationController
     set_property_type
 
     if @property_type.update(property_type_params)
-      flash[:notice] = 'Tipo de Imóvel atualizado com sucesso'
+      flash[:notice] = 'Tipo de imóvel atualizado com sucesso'
       redirect_to property_type_path
     else
       flash[:alert] = 'Campos em branco'

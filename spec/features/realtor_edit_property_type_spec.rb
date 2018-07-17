@@ -22,7 +22,7 @@ feature 'Realtor edit Property type' do
     click_on 'Salvar'
 
     #expectativa
-    expect(page).to have_content("Tipo de Imóvel atualizado com sucesso")
+    expect(page).to have_content("Tipo de imóvel atualizado com sucesso")
     expect(page).to have_content("Nome: Apartamento")
 
   end

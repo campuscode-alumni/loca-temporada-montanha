@@ -10,6 +10,7 @@ feature 'Realtor edit region' do
 
     fill_in 'Email', with: 'marcos@gmail.com'
     fill_in 'Senha', with: '1234567'
+
     click_on 'Log in'
     click_on 'Visualizar Regiões'
     click_on "#{region.name}"

@@ -19,7 +19,7 @@ feature 'Send Proposal' do
     visit root_path
     click_on 'Entrar como Usuário'
     fill_in 'Email', with: 'jose.couves@mail.com' 
-    fill_in 'Password', with: 'teste1234'
+    fill_in 'Senha', with: 'teste1234'
     click_on 'Log in'
 
     select 'Copacabana', from: 'Região'

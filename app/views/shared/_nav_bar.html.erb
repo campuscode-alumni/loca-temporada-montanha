@@ -4,31 +4,50 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div>
-    <% if realtor_signed_in? %>
-      <%= current_realtor.email %>
-      <%= link_to 'Sair', destroy_realtor_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Login', new_realtor_session_path %>
-    <% end %>
-  </div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= new_property_path %>">Cadastrar imóvel</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= new_property_type_path %>">Cadastrar tipo de imóvel</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= new_region_path %>">Cadastrar região</a>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Visualizar Propostas', proposals_path, class: 'nav-link' %>  
-      </li>
+     
+      
+      <% if realtor_signed_in? %>
+        <%= current_realtor.email %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_property_path %>">Cadastrar imóvel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_property_type_path %>">Cadastrar tipo de imóvel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_region_path %>">Cadastrar região</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Visualizar Imóveis', properties_path, class: "nav-link"  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Visualizar Propostas', proposals_path, class: 'nav-link' %>  
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Visualizar Regiões', regions_path, class: 'nav-link'  %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sair', destroy_realtor_session_path, method: :delete, class: 'nav-link'  %>
+        </li>
+      <% else %>
+        <%= link_to 'Entrar como Corretor', new_realtor_session_path, class: 'nav-link'  %>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <%= current_user.email %>
+        <li class="nav-item">
+          <%= link_to 'Visualizar Propostas', proposals_path, class: 'nav-link' %>  
+        </li>
+        <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+      <% else %>
+        <%= link_to 'Entrar como Usuário', new_user_session_path, class: 'nav-link'  %>
+      <% end %>
+    </ul>
   </div>
 </nav>

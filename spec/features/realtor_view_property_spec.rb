@@ -16,12 +16,11 @@ feature 'Realtor view property' do
 
     #navegacao
     visit root_path
-    click_on 'Login'
-
+    click_on 'Entrar como Corretor'
     fill_in 'Email', with: 'dudu@mail.com' 
     fill_in 'Password', with: '123456'
     click_on 'Log in'
-    click_on 'Minhas Propriedades'
+    click_on 'Visualizar Propostas'
     
     #expectativa
     expect(page).to have_content('dudu@01.com')

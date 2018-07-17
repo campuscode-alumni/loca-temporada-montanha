@@ -8,6 +8,8 @@ class ProposalsController < ApplicationController
 
     if user_signed_in? 
       @proposals = current_user.proposals
+    elsif realtor_signed_in?
+      @proposals = current_user.proposals
     end
 
   end

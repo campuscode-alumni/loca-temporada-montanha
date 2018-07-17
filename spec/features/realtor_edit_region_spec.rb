@@ -6,7 +6,7 @@ feature 'Realtor edit region' do
     region = Region.create!(name: 'São Paulo')
 
     visit root_path
-    click_on 'Login'
+    click_on 'Login Corretor'
 
     fill_in 'Email', with: 'marcos@gmail.com'
     fill_in 'Password', with: '1234567'
@@ -20,7 +20,7 @@ feature 'Realtor edit region' do
 
     expect(page).to have_content('Sair')
     expect(page).to have_content("#{region.name}")
-    expect(page).not_to have_content('Login')
+    expect(page).not_to have_content('Login Corretor')
     expect(page).to have_content("#{realtor.email}")
     expect(page).to have_content("Região Atualizada com Sucesso")
   end

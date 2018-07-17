@@ -4,8 +4,9 @@ class ProposalsController < ApplicationController
   def show;  end
 
   def index
+    @proposals = []
 
-    if user_signed_in?
+    if user_signed_in? 
       @proposals = current_user.proposals
     end
 
@@ -21,6 +22,7 @@ class ProposalsController < ApplicationController
     @proposal = Proposal.new(proposal_params)
 
     @proposal.property = @property
+    @proposal.user = current_user
 
     if @proposal.save
       flash[:success] = 'Proposta enviada com sucesso'

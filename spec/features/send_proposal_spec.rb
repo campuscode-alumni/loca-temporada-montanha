@@ -3,6 +3,13 @@ require 'rails_helper'
 feature 'Send Proposal' do
   scenario 'successfully' do
     #criar
+    current_user = User.create!(
+      name: 'Jose',
+      email: 'jose.couves@mail.com',
+      password: 'teste1234',
+      cpf: '123345484'
+    )
+
     region = Region.create(name: 'Copacabana')
     property_type = PropertyType.create(name: 'Apartamento')
     property = Property.create(title: 'Casa chic', room_quantity: 4 , maximum_guests: 8, minimum_rent: 2,
@@ -10,6 +17,11 @@ feature 'Send Proposal' do
                         photo: File.new(Rails.root.join('spec', 'support', 'casa.jpg')))
     #navegar
     visit root_path
+    click_on 'Entrar como Usuário'
+    fill_in 'Email', with: 'jose.couves@mail.com' 
+    fill_in 'Password', with: 'teste1234'
+    click_on 'Log in'
+
     select 'Copacabana', from: 'Região'
     click_on 'Buscar'
     click_on "#{property.title}"

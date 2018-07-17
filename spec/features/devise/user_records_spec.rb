@@ -16,6 +16,9 @@ feature 'User signs up on site' do
 
     click_on 'Sign up'
 
+    user = User.last
+    expect(user.name).to eq 'Rafael Abreu'
+    expect(user.cpf).to eq '123.123.123-45'
     expect(page).to have_content('teste@teste.com')
     expect(page).to have_content('Rafael Abreu')
   end 

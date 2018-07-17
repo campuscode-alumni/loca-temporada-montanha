@@ -2,7 +2,15 @@ require 'rails_helper'
 
 feature 'Register Property Type' do
   scenario 'successfully' do
+    realtor = Realtor.create!(email: 'realtor@test.com', password: '123456')
+
     visit root_path
+    click_on 'Login Corretor'
+    
+    fill_in 'Email', with: 'realtor@test.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Log in'
+
     click_on 'Cadastrar tipo de imóvel'
     fill_in 'Nome', with: 'Apartamento'
     click_on 'Cadastrar'
@@ -12,7 +20,14 @@ feature 'Register Property Type' do
   end
 
   scenario 'and leave blank fields' do
+    realtor = Realtor.create!(email: 'realtor@test.com', password: '123456')
+
     visit root_path
+    click_on 'Login Corretor'
+    
+    fill_in 'Email', with: 'realtor@test.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Log in'
     click_on 'Cadastrar tipo de imóvel'
     click_on 'Cadastrar'
 

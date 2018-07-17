@@ -4,8 +4,15 @@ feature 'realtor added photos' do
   scenario 'successfully' do
     PropertyType.create(name: 'Apartamento')
     Region.create(name: 'São Paulo')
+    realtor = Realtor.create!(name: 'Marcos Vieira', email: 'marcos@gmail.com', password: '1234567')
 
     visit root_path
+    click_on 'Login Corretor'
+
+    fill_in 'Email', with: 'marcos@gmail.com'
+    fill_in 'Senha', with: '1234567'
+    click_on 'Log in' 
+
     click_on 'Cadastrar imóvel'
     fill_in 'Título', with: 'Apartamento São Paulo'
     select 'Apartamento', from: 'Tipo do imóvel'
@@ -27,8 +34,15 @@ feature 'realtor added photos' do
   scenario ' and must add photo' do
     PropertyType.create(name: 'Apartamento')
     Region.create(name: 'São Paulo')
+    realtor = Realtor.create!(name: 'Marcos Vieira', email: 'marcos@gmail.com', password: '1234567')
 
     visit root_path
+    click_on 'Login Corretor'
+
+    fill_in 'Email', with: 'marcos@gmail.com'
+    fill_in 'Senha', with: '1234567'
+    click_on 'Log in'
+
     click_on 'Cadastrar imóvel'
     fill_in 'Título', with: 'Apartamento São Paulo'
     select 'Apartamento', from: 'Tipo do imóvel'

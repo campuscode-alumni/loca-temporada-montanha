@@ -2,7 +2,15 @@ require 'rails_helper'
 
 feature 'Register Region' do
   scenario 'successfully' do
+    realtor = Realtor.create!(name: 'Marcos Vieira', email: 'marcos@gmail.com', password: '1234567')
+
     visit root_path
+    click_on 'Login Corretor'
+
+    fill_in 'Email', with: 'marcos@gmail.com'
+    fill_in 'Senha', with: '1234567'
+    click_on 'Log in'
+    
     click_on 'Cadastrar região'
     fill_in 'Nome', with: 'Copacabana'
     click_on 'Cadastrar'
@@ -12,7 +20,15 @@ feature 'Register Region' do
   end
 
   scenario 'and leave blank fields' do
+    realtor = Realtor.create!(name: 'Marcos Vieira', email: 'marcos@gmail.com', password: '1234567')
+
     visit root_path
+    click_on 'Login Corretor'
+
+    fill_in 'Email', with: 'marcos@gmail.com'
+    fill_in 'Senha', with: '1234567'
+    click_on 'Log in'
+    
     click_on 'Cadastrar região'
     click_on 'Cadastrar'
 

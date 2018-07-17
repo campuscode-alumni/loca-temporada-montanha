@@ -10,7 +10,7 @@ feature 'Realtor authentication' do
     click_on 'Login Corretor'
 
     fill_in 'Email', with: 'kochs@01.com' 
-    fill_in 'Password', with: '123456'
+    fill_in 'Senha', with: '123456'
     click_on 'Log in'
 
     expect(page).to have_content('kochs@01.com')
@@ -22,7 +22,7 @@ feature 'Realtor authentication' do
     click_on 'Login Corretor'
 
     fill_in 'Email', with: 'kochss@01.com' 
-    fill_in 'Password', with: '123456'
+    fill_in 'Senha', with: '123456'
     click_on 'Log in'
 
     expect(page).to have_content('Login Corretor')

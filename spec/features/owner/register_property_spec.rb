@@ -2,10 +2,17 @@ require 'rails_helper'
 
 feature 'Register Property' do
   scenario 'successfully' do
-    region = Region.create(name: 'Copacabana')
-    property_type = PropertyType.create(name: 'Apartamento')
+    region = Region.create!(name: 'Copacabana')
+    property_type = PropertyType.create!(name: 'Apartamento')
+    realtor = Realtor.create!(email: 'realtor@test.com', password: '123456')
 
     visit root_path
+    click_on 'Login Corretor'
+    
+    fill_in 'Email', with: 'realtor@test.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Log in'
+
     click_on 'Cadastrar imóvel'
     fill_in 'Título', with: 'Lindo apartamento 100m da praia'
     fill_in 'Descrição', with: 'Um apartamento excelente para férias'
@@ -44,8 +51,15 @@ feature 'Register Property' do
   scenario 'and leave blank fields' do
     Region.create(name: 'Copacabana')
     PropertyType.create(name: 'Apartamento')
+    realtor = Realtor.create!(email: 'realtor@test.com', password: '123456')
 
     visit root_path
+    click_on 'Login Corretor'
+    
+    fill_in 'Email', with: 'realtor@test.com'
+    fill_in 'Senha', with: '123456'
+    click_on 'Log in'
+
     click_on 'Cadastrar imóvel'
     click_on 'Cadastrar'
 

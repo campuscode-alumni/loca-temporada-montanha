@@ -16,7 +16,7 @@ feature 'reltor edit property' do
     click_on 'Login Corretor'
 
     fill_in 'Email', with: 'marcos@gmail.com'
-    fill_in 'Password', with: '1234567'
+    fill_in 'Senha', with: '1234567'
     click_on 'Log in'
     click_on 'Visualizar Imóveis'
     click_on "#{property.title}"

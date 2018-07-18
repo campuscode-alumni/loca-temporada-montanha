@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      realtor: Corretor
+    attributes: 
+      realtor:
+        email: Email
+        remember_me: 'Manter-me logado'
+        password: 'Senha'

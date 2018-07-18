@@ -33,6 +33,6 @@ feature 'Register Property Type' do
     click_on 'Cadastrar'
 
     expect(page).to have_content('Você deve preencher todos os campos')
-    expect(page).to have_content('Name não pode ficar em branco')
+    expect(page).to have_content('Nome não pode ficar em branco')
   end
 end

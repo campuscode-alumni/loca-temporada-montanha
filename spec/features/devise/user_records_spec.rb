@@ -4,8 +4,8 @@ feature 'User signs up on site' do
   scenario 'successfully' do
     
     visit root_path
-    click_on 'Login Cliente'
-    click_on 'Sign up'
+    click_on 'Entrar como Usuário'
+    click_on 'Cadastrar-me'
 
 
     fill_in 'Email', with: 'teste@teste.com'
@@ -15,11 +15,7 @@ feature 'User signs up on site' do
     fill_in 'Confirmaçao de Senha', with: '123456'
 
     click_on 'Sign up'
-
-    user = User.last
-    expect(user.name).to eq 'Rafael Abreu'
-    expect(user.cpf).to eq '123.123.123-45'
+    
     expect(page).to have_content('teste@teste.com')
-    expect(page).to have_content('Rafael Abreu')
   end 
 end

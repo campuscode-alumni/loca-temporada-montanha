@@ -2,21 +2,7 @@
   <a class="navbar-brand" href="<%= root_path %>">Aluga Temporada</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div>
-    <% if user_signed_in? %>
-      <%= current_user.email %>
-      <%= current_user.name %>
-
-      <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
-
-    <% else %> 
-      <%= link_to 'Login Cliente', new_user_session_path %>
-    <% end %>
-  </div>
-
-  
+  </button>  
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">

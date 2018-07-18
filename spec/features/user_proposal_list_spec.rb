@@ -49,7 +49,7 @@ feature 'Search by region' do
 
     #expectativa
     expect(page).to have_css("h1", text: "#{region.name}")
-    expect(page).to have_css("h2", text: "#{property.title}")
+    expect(page).to have_css("h1", text: "#{property.title}")
     expect(page).to have_content("#{proposal.rent_purpose}")
   end
 end

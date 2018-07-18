@@ -3,10 +3,27 @@
 <% else%>
   <% @proposals.each do |proposal| %>
     <ul>
-      <h1>Nome do proponente: <%= proposal.guest_name %></h1>     
-      <h1>Regiao: <%= proposal.property.region.name %></h1>
-      <h2>Propriedade: <%= proposal.property.title %></h2>
-      <h2>Motivo: <%= proposal.rent_purpose %></h2> 
+      <li>
+        <h1>Propriedade: <%= proposal.property.title %></h1>
+      </li>
+      <li>
+        <h2>Tipo: <%= proposal.property.property_type.name %></h2>
+      </li>
+      <li>
+        <h2>Região: <%= proposal.property.region.name %></h2>
+      </li>
+      <li>
+        <h1>Nome do proponente: <%= proposal.guest_name %></h1>
+      </li>
+      <li>
+        <h2>Proposta #<%= proposal.id %></h2>
+      </li>
+      <li>
+        <h2>Motivo: <%= proposal.rent_purpose %></h2> 
+      </li>
+      <li>
+        <h3>Período: De <%= I18n.localize(proposal.start_date) %> até <%= I18n.localize(proposal.end_date) %></h3>
+      </li>  
     </ul>     
   <% end %>
 <% end %>

@@ -4,8 +4,6 @@ feature 'realtor added photos' do
   scenario 'successfully' do
     PropertyType.create(name: 'Apartamento')
     Region.create(name: 'São Paulo')
-    realtor = Realtor.create!(name: 'Marcos Vieira', email: 'marcos@gmail.com', password: '1234567')
-
     realtor = Realtor.create!(name: 'Éduardo Koch', email: 'kochs@01.com', password: '123456')
 
     visit root_path

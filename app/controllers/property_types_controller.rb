@@ -1,6 +1,10 @@
 class PropertyTypesController < ApplicationController
   before_action :set_property_type, only: [:show]
 
+  def index
+    @property_types = PropertyType.all 
+  end
+
   def show; end
 
   def new
@@ -15,6 +19,22 @@ class PropertyTypesController < ApplicationController
     else
       flash[:alert] = 'Você deve preencher todos os campos'
       render :new
+    end
+  end
+
+  def edit
+    set_property_type
+  end
+
+  def update 
+    set_property_type
+
+    if @property_type.update(property_type_params)
+      flash[:notice] = 'Tipo de imóvel atualizado com sucesso'
+      redirect_to property_type_path
+    else
+      flash[:alert] = 'Campos em branco'
+      render 'edit'
     end
   end
 

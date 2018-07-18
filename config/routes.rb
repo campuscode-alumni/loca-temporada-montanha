@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :properties, only: [:show, :new, :create, :index, :edit, :update] do
     resources :proposals, only: [:new, :create, :show]
   end
-  resources :property_types, only: [:show, :new, :create]
+  resources :property_types, only: [:show, :new, :create, :index, :edit, :update]
   resources :regions, only: [:index, :show, :new, :create, :edit, :update]
   resources :proposals, only: [:index]
   resources :realtors, only: [:index]

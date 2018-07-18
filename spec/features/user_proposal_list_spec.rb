@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Search by region' do
   scenario 'successfully' do
     #criar
+    realtor = Realtor.create!(name: 'Marcos Vieira', email: 'marcos@gmail.com', password: '1234567')
     current_user = User.create!(
       name: 'Jose',
       email: 'jose.couves@mail.com',
@@ -22,7 +23,8 @@ feature 'Search by region' do
       daily_rate: 250.0,
       property_type: property_type,
       region: region,
-      photo: File.new(Rails.root.join('spec', 'support', 'casa.jpg'))
+      photo: File.new(Rails.root.join('spec', 'support', 'casa.jpg')),
+      realtor: realtor
      )
 
     proposal = Proposal.create(
@@ -48,7 +50,7 @@ feature 'Search by region' do
     click_on 'Visualizar Propostas'
 
     #expectativa
-    expect(page).to have_css("h1", text: "#{region.name}")
+    expect(page).to have_css("h2", text: "#{region.name}")
     expect(page).to have_css("h1", text: "#{property.title}")
     expect(page).to have_content("#{proposal.rent_purpose}")
   end

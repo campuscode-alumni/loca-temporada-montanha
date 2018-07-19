@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_16_210944) do
+ActiveRecord::Schema.define(version: 2018_07_18_011602) do
 
   create_table "properties", force: :cascade do |t|
     t.string "title"
@@ -33,7 +33,9 @@ ActiveRecord::Schema.define(version: 2018_07_16_210944) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer "realtor_id"
     t.index ["property_type_id"], name: "index_properties_on_property_type_id"
+    t.index ["realtor_id"], name: "index_properties_on_realtor_id"
     t.index ["region_id"], name: "index_properties_on_region_id"
   end
 

@@ -2,15 +2,14 @@ require 'rails_helper'
 
 feature 'reltor edit property' do
   scenario 'successfully' do 
-    
+    realtor = Realtor.create!(name: 'Éduardo Koch', email: 'marcos@gmail.com', password: '1234567')    
     property_type = PropertyType.create!(name: 'Apartamento')
     region = Region.create!(name: 'São Paulo')
     property = Property.create!(title: 'Apartamento frente ao mar', room_quantity: 3,
                               maximum_rent: 30, minimum_rent: 2, maximum_guests: 20,
                               daily_rate: 150.00, property_type: property_type,
-                              region: region, photo: File.new(Rails.root.join('spec', 'support', 'apartamento.jpg')))
+                              region: region, photo: File.new(Rails.root.join('spec', 'support', 'apartamento.jpg')), realtor: realtor)
 
-    realtor = Realtor.create!(name: 'Éduardo Koch', email: 'marcos@gmail.com', password: '1234567')
 
     visit root_path
 

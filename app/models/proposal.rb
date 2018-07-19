@@ -4,4 +4,6 @@ class Proposal < ApplicationRecord
   validates :start_date, :end_date, :total_guests, :guest_name, 
             :email, :phone, :rent_purpose, 
             presence: true
+
+  enum status: [:pending, :rejected, :approved]
 end

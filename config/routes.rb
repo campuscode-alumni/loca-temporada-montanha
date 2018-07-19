@@ -7,9 +7,12 @@ Rails.application.routes.draw do
   end
   resources :property_types, only: [:show, :new, :create, :index, :edit, :update]
   resources :regions, only: [:index, :show, :new, :create, :edit, :update]
-  resources :proposals, only: [:index]
+  resources :proposals, only: [:index] do 
+    member do
+      post 'approve'
+    end
+  end
   resources :realtors, only: [:index]
-
   
   get '/search_region', to: 'regions#search'
 end

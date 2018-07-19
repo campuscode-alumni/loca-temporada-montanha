@@ -1,7 +1,9 @@
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show]
 
-  def show;  end
+  def show
+    @proposal = Proposal.find(params[:id])
+  end
 
   def index
     @proposals = []
@@ -34,6 +36,11 @@ class ProposalsController < ApplicationController
       render :new 
     end
     
+  end
+
+  def approve
+    @proposal = Proposal.find(params[:id])
+    @proposal.approved!
   end
 
   private

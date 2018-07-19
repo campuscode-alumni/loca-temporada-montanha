@@ -19,6 +19,9 @@
         <h2><%= link_to "Proposta ##{proposal.id}",  property_proposal_path(proposal.property, proposal) %></h2>
       </li>
       <li>
+        <h2>Status: <%= I18n.t(proposal.status) %></h2> 
+      </li>
+      <li>
         <h2>Motivo: <%= proposal.rent_purpose %></h2> 
       </li>
       <li>

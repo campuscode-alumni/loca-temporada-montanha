@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_18_011602) do
+ActiveRecord::Schema.define(version: 2018_07_19_005915) do
 
   create_table "properties", force: :cascade do |t|
     t.string "title"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2018_07_18_011602) do
     t.datetime "updated_at", null: false
     t.text "rent_purpose"
     t.integer "user_id"
+    t.integer "status", default: 0
     t.index ["property_id"], name: "index_proposals_on_property_id"
     t.index ["user_id"], name: "index_proposals_on_user_id"
   end

@@ -1,5 +1,5 @@
 class ProposalsController < ApplicationController
-  before_action :set_proposal, only: [:show]
+  before_action :set_proposal, only: [:show, :reject]
 
   def show
   end
@@ -38,9 +38,9 @@ class ProposalsController < ApplicationController
   end
 
   def reject
-    @proposals = Proposal.all
+    @proposal.rejected!
     flash[:success] = 'Proposta foi rejeitada'
-    render :index
+    redirect_to proposals_path
   end
 
   private

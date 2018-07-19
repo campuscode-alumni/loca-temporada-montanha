@@ -39,26 +39,26 @@ feature "Reject Proposals" do
      rent_purpose: 'Férias'
    )
  
-   # navegar
-   visit root_path
-   click_on 'Entrar como Corretor'
+    # navegar
+    visit root_path
+    click_on 'Entrar como Corretor'
  
-   fill_in 'Email', with: 'realtor@test.com'
-   fill_in 'Senha', with: '123456'
+    fill_in 'Email', with: 'realtor@test.com'
+    fill_in 'Senha', with: '123456'
  
-   click_on 'Log in'
+    click_on 'Log in'
  
-   click_on 'Visualizar Propostas' 
-   click_on 'Proposta #1'
-   click_on 'Rejeitar!'
+    click_on 'Visualizar Propostas' 
+    click_on 'Proposta #1'
+    click_on 'Rejeitar!'
  
-   # expectativa
-   expect(page).to have_content("Proposta foi rejeitada")
-   expect(page).to have_css("h1", text: "Propriedade: #{property.title}")
-   expect(page).to have_css("h2", text: "Tipo: #{property.property_type.name}")
-   expect(page).to have_css("h2", text: "Região: #{property.region.name}")
- 
-   expect(page).to have_css("h2", text: "Proposta ##{proposal.id}")
-   expect(page).to have_css("h3", text: "Período: De 01/01/2018 até 10/01/2018")
+    #expectativa
+    expect(page).to have_content("Proposta foi rejeitada")
+    expect(page).to have_css("h1", text: "Propriedade: #{property.title}")
+    expect(page).to have_css("h2", text: "Tipo: #{property.property_type.name}")
+    expect(page).to have_css("h2", text: "Região: #{property.region.name}")
+    expect(page).to have_css("h2", text: "Status: Rejeitada")
+    expect(page).to have_css("h2", text: "Proposta ##{proposal.id}")
+    expect(page).to have_css("h3", text: "Período: De 01/01/2018 até 10/01/2018")
   end
 end

@@ -43,7 +43,7 @@ feature 'Send Proposal' do
 
     #expectativa
     expect(page).to have_content('Proposta enviada com sucesso')
-    expect(page).to have_content("Proposta para #{property.title}")
+    expect(page).to have_content("Proposta para: #{property.title}")
     expect(page).to have_content('h1', 'Feita por:')
     expect(page).to have_css('h2', text: "Tio chato")
     expect(page).to have_css('h2', text: "tio@mail.com")

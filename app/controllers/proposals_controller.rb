@@ -1,7 +1,8 @@
 class ProposalsController < ApplicationController
   before_action :set_proposal, only: [:show]
 
-  def show;  end
+  def show
+  end
 
   def index
     @proposals = []
@@ -34,6 +35,12 @@ class ProposalsController < ApplicationController
       render :new 
     end
     
+  end
+
+  def reject
+    @proposals = Proposal.all
+    flash[:success] = 'Proposta foi rejeitada'
+    render :index
   end
 
   private

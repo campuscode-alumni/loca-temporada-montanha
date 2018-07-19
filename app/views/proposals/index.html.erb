@@ -16,7 +16,7 @@
         <h1>Nome do proponente: <%= proposal.guest_name %></h1>
       </li>
       <li>
-        <h2>Proposta #<%= proposal.id %></h2>
+        <h2><%= link_to "Proposta ##{proposal.id}",  property_proposal_path(proposal.property, proposal) %></h2>
       </li>
       <li>
         <h2>Motivo: <%= proposal.rent_purpose %></h2> 

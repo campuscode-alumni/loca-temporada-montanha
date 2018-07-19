@@ -5,3 +5,5 @@
   <h2><%= @proposal.email %></h2>
   <h3><%= @proposal.rent_purpose %></h3>
 </div>
+
+<%= link_to 'Rejeitar!', reject_property_proposal_path(@proposal.property, @proposal), method: :post %>

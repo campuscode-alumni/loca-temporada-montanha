@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :regions, only: [:index, :show, :new, :create, :edit, :update]
   resources :proposals, only: [:index]
   resources :realtors, only: [:index]
+  resources :price_ranges, only: [:index, :new, :create, :show]
 
   
   get '/search_region', to: 'regions#search'

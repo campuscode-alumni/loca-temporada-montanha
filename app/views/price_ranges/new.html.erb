@@ -1,0 +1,21 @@
+<h1>Nova Temporada</h1>
+
+<%= form_for @price_range do |p| %>
+  <div>  
+    <%= p.label :title, 'Título' %>
+    <%= p.text_field :title %>
+  </div>
+  <div>
+    <%= p.label :start_date, 'Início do Período' %>
+    <%= p.date_field :start_date %>
+  </div>
+  <div>
+    <%= p.label :end_date, 'Término do Período' %>
+    <%= p.date_field :end_date %>
+  </div>
+  <div>  
+    <%= p.label :daily_rate, 'Preço' %>
+    <%= p.number_field :daily_rate, step: 0.01 %>
+  </div>
+  <%= p.submit 'Cadastrar' %>
+<% end %>
